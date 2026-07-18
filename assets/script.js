@@ -689,8 +689,8 @@ const gameLoop = () => {
     if (keys['ArrowLeft'] || keys['a']) ship.angle -= 0.085;
     if (keys['ArrowRight'] || keys['d']) ship.angle += 0.085;
     if (keys['ArrowUp'] || keys['w']) {
-        ship.vx += Math.cos(ship.angle) * 0.18;
-        ship.vy += Math.sin(ship.angle) * 0.18;
+        ship.vx += Math.cos(ship.angle) * 0.09;
+        ship.vy += Math.sin(ship.angle) * 0.09;
     }
     if (keys['ArrowDown'] || keys['s']) {
         ship.vx *= 0.95;
