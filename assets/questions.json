@@ -1,0 +1,122 @@
+[
+  {
+    "pergunta": "Qual e a complexidade de tempo da busca binaria em um vetor ordenado?",
+    "alternativas": ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
+    "correta": 1
+  },
+  {
+    "pergunta": "Em orientacao a objetos, o que e polimorfismo?",
+    "alternativas": [
+      "Esconder os atributos de uma classe",
+      "Uma classe herdar de varias classes ao mesmo tempo",
+      "Objetos de classes diferentes responderem ao mesmo metodo de formas diferentes",
+      "Criar varias instancias da mesma classe"
+    ],
+    "correta": 2
+  },
+  {
+    "pergunta": "Qual estrutura de dados funciona no esquema LIFO, onde o ultimo a entrar e o primeiro a sair?",
+    "alternativas": ["Fila", "Pilha", "Lista encadeada", "Arvore binaria"],
+    "correta": 1
+  },
+  {
+    "pergunta": "O que uma funcao recursiva precisa ter para nao rodar infinitamente?",
+    "alternativas": ["Um laco for", "Um caso base", "Uma variavel global", "Um retorno vazio"],
+    "correta": 1
+  },
+  {
+    "pergunta": "No protocolo HTTP, qual metodo e normalmente usado para enviar dados de um formulario ao servidor?",
+    "alternativas": ["GET", "POST", "DELETE", "HEAD"],
+    "correta": 1
+  },
+  {
+    "pergunta": "Em SQL, o que o comando INNER JOIN faz?",
+    "alternativas": [
+      "Apaga registros repetidos de uma tabela",
+      "Une duas tabelas retornando apenas os registros que combinam nas duas",
+      "Cria uma copia de seguranca da tabela",
+      "Ordena os resultados de forma crescente"
+    ],
+    "correta": 1
+  },
+  {
+    "pergunta": "Qual a diferenca entre uma linguagem compilada e uma interpretada?",
+    "alternativas": [
+      "Compilada e traduzida toda para codigo de maquina antes de executar, interpretada e traduzida durante a execucao",
+      "Compilada so roda em Linux, interpretada roda em qualquer sistema",
+      "Interpretada e sempre mais rapida que compilada",
+      "Nao existe diferenca, sao sinonimos"
+    ],
+    "correta": 0
+  },
+  {
+    "pergunta": "Em JavaScript, qual a diferenca entre null e undefined?",
+    "alternativas": [
+      "Sao exatamente a mesma coisa",
+      "null e a ausencia de valor definida de proposito, undefined e uma variavel que nunca recebeu valor",
+      "undefined so existe dentro de funcoes",
+      "null e um erro de sintaxe"
+    ],
+    "correta": 1
+  },
+  {
+    "pergunta": "Qual a complexidade de tempo do algoritmo Bubble Sort no pior caso?",
+    "alternativas": ["O(n)", "O(log n)", "O(n ao quadrado)", "O(1)"],
+    "correta": 2
+  },
+  {
+    "pergunta": "No Git, o que o comando git merge faz?",
+    "alternativas": [
+      "Apaga a branch atual",
+      "Junta as alteracoes de uma branch na branch atual",
+      "Envia os commits para o repositorio remoto",
+      "Desfaz o ultimo commit"
+    ],
+    "correta": 1
+  },
+  {
+    "pergunta": "O que significa a sigla API?",
+    "alternativas": [
+      "Advanced Programming Internet",
+      "Application Programming Interface",
+      "Automatic Process Integration",
+      "Applied Protocol Instruction"
+    ],
+    "correta": 1
+  },
+  {
+    "pergunta": "Para que serve o DNS na internet?",
+    "alternativas": [
+      "Criptografar as senhas dos usuarios",
+      "Traduzir nomes de dominio em enderecos IP",
+      "Bloquear sites perigosos",
+      "Acelerar o download de arquivos"
+    ],
+    "correta": 1
+  },
+  {
+    "pergunta": "Em um banco de dados relacional, o que e uma chave primaria?",
+    "alternativas": [
+      "A senha do administrador do banco",
+      "Um campo que identifica de forma unica cada registro da tabela",
+      "A primeira coluna criada na tabela",
+      "Um indice usado apenas em consultas lentas"
+    ],
+    "correta": 1
+  },
+  {
+    "pergunta": "Na Godot Engine, qual linguagem de script e a nativa do motor?",
+    "alternativas": ["Lua", "GDScript", "JavaScript", "Java"],
+    "correta": 1
+  },
+  {
+    "pergunta": "O que e uma variavel do tipo booleano?",
+    "alternativas": [
+      "Uma variavel que guarda apenas numeros inteiros",
+      "Uma variavel que guarda apenas verdadeiro ou falso",
+      "Uma variavel que guarda textos curtos",
+      "Uma variavel que nao pode mudar de valor"
+    ],
+    "correta": 1
+  }
+]
