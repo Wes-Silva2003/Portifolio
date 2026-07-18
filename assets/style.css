@@ -712,9 +712,9 @@ input, textarea { font-family: var(--body-font); }
   position: fixed;
   right: 1rem;
   bottom: -50%;
-  width: 52px;
-  height: 52px;
-  padding: 4px;
+  width: 68px;
+  height: 68px;
+  padding: 6px;
   background-color: var(--container-color);
   border: 1px solid var(--border-color);
   border-radius: .5rem;
@@ -730,7 +730,7 @@ input, textarea { font-family: var(--body-font); }
 .rocket-launch.show-scroll { bottom: 3rem; }
 
 /* Com o foguete no lugar da seta, a seta sobe para logo acima dele */
-.scrollup.show-scroll { bottom: 7.5rem; }
+.scrollup.show-scroll { bottom: 8.5rem; }
 
 /* Tela cheia do mini game */
 .game-overlay {

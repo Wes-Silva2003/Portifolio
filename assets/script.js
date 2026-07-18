@@ -61,6 +61,10 @@ const translations = {
 
         footer_rights: "Todos os direitos reservados.",
 
+        game_hint: "Setas ou WASD para mover, espaco para atirar, ESC para sair",
+        quiz_title: "Voce foi atingido!",
+        over_survived: "Voce sobreviveu por {s} segundos",
+        game_server_alert: "O jogo precisa ser aberto por um servidor (como o GitHub Pages ou o Live Server) para carregar as perguntas.",
         typed_words: ["Programador", "Game Dev"]
     },
     en: {
@@ -124,6 +128,10 @@ const translations = {
 
         footer_rights: "All rights reserved.",
 
+        game_hint: "Arrows or WASD to move, space to shoot, ESC to quit",
+        quiz_title: "You got hit!",
+        over_survived: "You survived for {s} seconds",
+        game_server_alert: "The game needs to run from a server (like GitHub Pages or Live Server) to load the questions.",
         typed_words: ["Programmer", "Game Dev"]
     },
     es: {
@@ -187,6 +195,10 @@ const translations = {
 
         footer_rights: "Todos los derechos reservados.",
 
+        game_hint: "Flechas o WASD para mover, espacio para disparar, ESC para salir",
+        quiz_title: "Te golpearon!",
+        over_survived: "Sobreviviste {s} segundos",
+        game_server_alert: "El juego necesita abrirse desde un servidor (como GitHub Pages o Live Server) para cargar las preguntas.",
         typed_words: ["Programador", "Game Dev"]
     }
 };
@@ -425,7 +437,9 @@ const quizQuestionEl = document.getElementById('quiz-question');
 const quizOptionsEl = document.getElementById('quiz-options');
 const gameOverEl = document.getElementById('game-over');
 const gameOverTimeEl = document.getElementById('game-over-time');
-const rocketImg = document.querySelector('#rocket-launch img');
+/* Imagem da nave usada dentro do jogo */
+const shipSprite = new Image();
+shipSprite.src = 'assets/images/nave_mini_game.png';
 
 let gameRunning = false;
 let gamePaused = false;
@@ -511,8 +525,10 @@ const createAsteroid = (size) => {
 
 /* Comeca uma partida do zero */
 const startGame = () => {
+    /* Tira o foco do botao para o teclado controlar so o jogo */
+    document.getElementById('rocket-launch').blur();
     if (questions.length === 0) {
-        alert('O jogo precisa ser aberto por um servidor (como o GitHub Pages ou o Live Server) para carregar as perguntas.');
+        alert(translations[currentLang].game_server_alert);
         return;
     }
     resizeCanvas();
@@ -523,11 +539,12 @@ const startGame = () => {
         y: gameCanvas.height / 2,
         vx: 0, vy: 0,
         angle: -Math.PI / 2,
-        radius: 16
+        radius: 22
     };
     asteroids = [];
     bullets = [];
     keys = {};
+    lastShot = 0;
     for (let i = 0; i < 5; i++) asteroids.push(createAsteroid(38 + Math.random() * 18));
 
     startTime = performance.now();
@@ -561,7 +578,7 @@ const showGameOver = () => {
     gamePaused = true;
     quizBox.classList.remove('show-quiz');
     const seconds = Math.floor((performance.now() - startTime - pausedTotal) / 1000);
-    gameOverTimeEl.textContent = 'Voce sobreviveu por ' + seconds + ' segundos';
+    gameOverTimeEl.textContent = translations[currentLang].over_survived.replace('{s}', seconds);
     gameOverEl.classList.add('show-over');
     setTimeout(endGame, 2600);
 };
@@ -572,10 +589,10 @@ const askQuestion = () => {
     pauseStart = performance.now();
 
     const q = nextQuestion();
-    quizQuestionEl.textContent = q.pergunta;
+    quizQuestionEl.textContent = q.pergunta[currentLang];
     quizOptionsEl.innerHTML = '';
 
-    q.alternativas.forEach((alt, index) => {
+    q.alternativas[currentLang].forEach((alt, index) => {
         const btn = document.createElement('button');
         btn.className = 'game-quiz-option';
         btn.textContent = alt;
@@ -608,7 +625,10 @@ const drawShip = () => {
     gameCtx.save();
     gameCtx.translate(ship.x, ship.y);
     gameCtx.rotate(ship.angle + Math.PI / 2);
-    gameCtx.drawImage(rocketImg, -22, -22, 44, 44);
+    /* Mantem a proporcao original da nave, so que maior */
+    const shipH = 68;
+    const shipW = shipH * (shipSprite.width / shipSprite.height || 0.57);
+    gameCtx.drawImage(shipSprite, -shipW / 2, -shipH / 2, shipW, shipH);
     gameCtx.restore();
 };
 
@@ -666,11 +686,15 @@ const gameLoop = () => {
     gameTimeEl.textContent = seconds + 's';
 
     /* Controles do foguete */
-    if (keys['ArrowLeft'] || keys['a']) ship.angle -= 0.065;
-    if (keys['ArrowRight'] || keys['d']) ship.angle += 0.065;
+    if (keys['ArrowLeft'] || keys['a']) ship.angle -= 0.085;
+    if (keys['ArrowRight'] || keys['d']) ship.angle += 0.085;
     if (keys['ArrowUp'] || keys['w']) {
-        ship.vx += Math.cos(ship.angle) * 0.12;
-        ship.vy += Math.sin(ship.angle) * 0.12;
+        ship.vx += Math.cos(ship.angle) * 0.18;
+        ship.vy += Math.sin(ship.angle) * 0.18;
+    }
+    if (keys['ArrowDown'] || keys['s']) {
+        ship.vx *= 0.95;
+        ship.vy *= 0.95;
     }
     if (keys[' ']) shoot();
 
