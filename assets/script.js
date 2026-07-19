@@ -689,8 +689,8 @@ const gameLoop = () => {
     if (keys['ArrowLeft'] || keys['a']) ship.angle -= 0.085;
     if (keys['ArrowRight'] || keys['d']) ship.angle += 0.085;
     if (keys['ArrowUp'] || keys['w']) {
-        ship.vx += Math.cos(ship.angle) * 0.09;
-        ship.vy += Math.sin(ship.angle) * 0.09;
+        ship.vx += Math.cos(ship.angle) * 0.15;
+        ship.vy += Math.sin(ship.angle) * 0.15;
     }
     if (keys['ArrowDown'] || keys['s']) {
         ship.vx *= 0.95;
@@ -699,8 +699,8 @@ const gameLoop = () => {
     if (keys[' ']) shoot();
 
     /* Atrito leve e limite de velocidade */
-    ship.vx *= 0.99;
-    ship.vy *= 0.99;
+    ship.vx *= 0.90;
+    ship.vy *= 0.90;
     const speed = Math.hypot(ship.vx, ship.vy);
     if (speed > 6) { ship.vx *= 6 / speed; ship.vy *= 6 / speed; }
     ship.x += ship.vx;
