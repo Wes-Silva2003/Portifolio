@@ -699,8 +699,8 @@ const gameLoop = () => {
     if (keys[' ']) shoot();
 
     /* Atrito leve e limite de velocidade */
-    ship.vx *= 0.90;
-    ship.vy *= 0.90;
+    ship.vx *= 0.95;
+    ship.vy *= 0.95;
     const speed = Math.hypot(ship.vx, ship.vy);
     if (speed > 6) { ship.vx *= 6 / speed; ship.vy *= 6 / speed; }
     ship.x += ship.vx;
