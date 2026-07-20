@@ -686,8 +686,8 @@ const gameLoop = () => {
     gameTimeEl.textContent = seconds + 's';
 
     /* Controles do foguete */
-    if (keys['ArrowLeft'] || keys['a']) ship.angle -= 0.085;
-    if (keys['ArrowRight'] || keys['d']) ship.angle += 0.085;
+    if (keys['ArrowLeft'] || keys['a']) ship.angle -= 0.065;
+    if (keys['ArrowRight'] || keys['d']) ship.angle += 0.065;
     if (keys['ArrowUp'] || keys['w']) {
         ship.vx += Math.cos(ship.angle) * 0.15;
         ship.vy += Math.sin(ship.angle) * 0.15;
@@ -699,8 +699,8 @@ const gameLoop = () => {
     if (keys[' ']) shoot();
 
     /* Atrito leve e limite de velocidade */
-    ship.vx *= 0.95;
-    ship.vy *= 0.95;
+    ship.vx *= 0.97;
+    ship.vy *= 0.97;
     const speed = Math.hypot(ship.vx, ship.vy);
     if (speed > 6) { ship.vx *= 6 / speed; ship.vy *= 6 / speed; }
     ship.x += ship.vx;
